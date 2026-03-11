@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Color Trading</title>
+
+<style>
+
+body{
+background:#0f172a;
+font-family:Arial, sans-serif;
+color:white;
+text-align:center;
+margin:0;
+}
+
+.header{
+background:#111827;
+padding:15px;
+font-size:22px;
+font-weight:bold;
+}
+
+.balance{
+margin-top:20px;
+font-size:20px;
+}
+
+.timer{
+margin:20px;
+font-size:28px;
+color:#facc15;
+}
+
+.buttons{
+display:flex;
+justify-content:center;
+gap:20px;
+margin-top:30px;
+flex-wrap:wrap;
+}
+
+.btn{
+padding:18px 40px;
+font-size:18px;
+border:none;
+border-radius:10px;
+cursor:pointer;
+color:white;
+}
+
+.green{background:#16a34a;}
+.red{background:#dc2626;}
+.violet{background:#7c3aed;}
+
+.telegram{
+margin-top:40px;
+}
+
+.telegram a{
+text-decoration:none;
+}
+
+.telegram button{
+background:#229ED9;
+padding:15px 35px;
+font-size:18px;
+border:none;
+border-radius:10px;
+color:white;
+cursor:pointer;
+}
+
+.result{
+margin-top:30px;
+font-size:20px;
+color:#22c55e;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="header">
+Color Trading
+</div>
+
+<div class="balance">
+Balance: ₹1000
+</div>
+
+<div class="timer" id="timer">
+Next Round: 30s
+</div>
+
+<div class="buttons">
+<button class="btn green">GREEN</button>
+<button class="btn red">RED</button>
+<button class="btn violet">VIOLET</button>
+</div>
+
+<div class="result" id="result">
+Result: Waiting...
+</div>
+
+<div class="telegram">
+<a href="https://t.me/yourchannelname" target="_blank">
+<button>Join Telegram</button>
+</a>
+</div>
+
+<script>
+
+let time = 30;
+
+setInterval(()=>{
+time--;
+
+document.getElementById("timer").innerText = "Next Round: " + time + "s";
+
+if(time <= 0){
+time = 30;
+
+let colors = ["GREEN","RED","VIOLET"];
+let random = colors[Math.floor(Math.random()*colors.length)];
+
+document.getElementById("result").innerText = "Result: " + random;
+}
+
+},1000);
+
+</script>
+
+</body>
+</html>
